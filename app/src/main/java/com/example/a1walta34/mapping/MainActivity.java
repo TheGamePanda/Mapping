@@ -21,7 +21,7 @@ import org.osmdroid.views.MapView;
 import android.content.Intent;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 
-public class MainActivity extends AppCompatActivity implements OnClickListener {
+public class MainActivity extends AppCompatActivity{
 
     MapView mv;
     @Override
@@ -33,17 +33,17 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         mv.setBuiltInZoomControls(true);
         mv.getController().setZoom(16);
         mv.getController().setCenter(new GeoPoint(50.901321, -1.405033));
-        Button button = (Button) findViewById(R.id.butGo);
-        button.setOnClickListener(this);
+//        Button button = (Button) findViewById(R.id.butGo);
+//        button.setOnClickListener(this);
     }
 
-    public void onClick(View view) {
-        EditText LatEt = (EditText)findViewById(R.id.latIn);
-        EditText LonEt = (EditText)findViewById(R.id.lonIn);
-        double latCo = Double.parseDouble(LatEt.getText().toString());
-        double lonCo = Double.parseDouble(LonEt.getText().toString());
-        mv.getController().setCenter(new GeoPoint(latCo, lonCo));
-    }
+//    public void onClick(View view) {
+//        EditText LatEt = (EditText)findViewById(R.id.latIn);
+//        EditText LonEt = (EditText)findViewById(R.id.lonIn);
+//        double latCo = Double.parseDouble(LatEt.getText().toString());
+//        double lonCo = Double.parseDouble(LonEt.getText().toString());
+//        mv.getController().setCenter(new GeoPoint(latCo, lonCo));
+//    }
     public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater inflater=getMenuInflater();
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         if(item.getItemId() == R.id.choosemap)
         {
             Intent intent = new Intent(this,MapChooseActivity.class);
-            startActivity(intent, 0);
+            startActivity(intent);
             // react to the menu item being selected...
             return true;
         }
