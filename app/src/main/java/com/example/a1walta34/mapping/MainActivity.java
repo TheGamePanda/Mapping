@@ -60,11 +60,6 @@ public class MainActivity extends AppCompatActivity{
         }
         return false;
     }
-
-
-
-
-
     protected void onActivityResult(int requestCode,int resultCode,Intent intent)
     {
 
@@ -94,6 +89,4 @@ public class MainActivity extends AppCompatActivity{
             mv.getController().setCenter(new GeoPoint(latCo,lonCo));
         }
     }
-
-
 }
