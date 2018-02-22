@@ -1,5 +1,6 @@
 package com.example.a1walta34.mapping;
 
+import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,25 +26,16 @@ public class MainActivity extends AppCompatActivity{
 
     MapView mv;
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
         setContentView(R.layout.activity_main);
-        mv = (MapView)findViewById(R.id.map1);
+        mv = (MapView) findViewById(R.id.map1);
         mv.setBuiltInZoomControls(true);
         mv.getController().setZoom(16);
         mv.getController().setCenter(new GeoPoint(50.901321, -1.405033));
-//        Button button = (Button) findViewById(R.id.butGo);
-//        button.setOnClickListener(this);
     }
 
-//    public void onClick(View view) {
-//        EditText LatEt = (EditText)findViewById(R.id.latIn);
-//        EditText LonEt = (EditText)findViewById(R.id.lonIn);
-//        double latCo = Double.parseDouble(LatEt.getText().toString());
-//        double lonCo = Double.parseDouble(LonEt.getText().toString());
-//        mv.getController().setCenter(new GeoPoint(latCo, lonCo));
-//    }
     public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater inflater=getMenuInflater();
@@ -55,12 +47,24 @@ public class MainActivity extends AppCompatActivity{
         if(item.getItemId() == R.id.choosemap)
         {
             Intent intent = new Intent(this,MapChooseActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, 0);
+            // react to the menu item being selected...
+            return true;
+        }
+        if(item.getItemId() == R.id.locationchoice)
+        {
+            Intent intent = new Intent(this,LocationChoice.class);
+            startActivityForResult(intent, 1);
             // react to the menu item being selected...
             return true;
         }
         return false;
     }
+
+
+
+
+
     protected void onActivityResult(int requestCode,int resultCode,Intent intent)
     {
 
@@ -80,6 +84,14 @@ public class MainActivity extends AppCompatActivity{
                     mv.setTileSource(TileSourceFactory.MAPNIK);
                 }
             }
+        }
+        if(requestCode==1)
+        {
+            Bundle extras=intent.getExtras();
+            double latCo= extras.getDouble("com.example.latCo");
+            double lonCo= extras.getDouble("com.example.lonCo");
+
+            mv.getController().setCenter(new GeoPoint(latCo,lonCo));
         }
     }
 

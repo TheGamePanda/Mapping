@@ -7,5 +7,5 @@
     <string name="regularview">Regular Map View</string>
     <string name="hikebikemapview">Hike-Bike Map View</string>
     <string name="selectmap">Map Selection</string>
-    <string name="preferences">Preferences</string>
+    <string name="title_activity_location_choice">Location Choice</string>
 </resources>
