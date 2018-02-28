@@ -1,19 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <EditTextPreference
         android:key="lat"
         android:defaultValue="50.9"
-        android:title="@string/lat"
+        android:title="Latitude"
         android:summary="Latitude to show the map at initially." />
     <EditTextPreference
         android:key="lon"
         android:defaultValue="-1.4"
-        android:title="@string/lon"
+        android:title="Longitude"
         android:summary="Longitude to show the map at initially." />
     <CheckBoxPreference
-        android:id="@+id/prefCheckBox"
-        android:key="autodownload"
+        android:key="hikebike"
         android:defaultValue="true"
-        android:title="Auto-download"
-        android:summary="Auto-download data about surrounding cinemas?" />
+        android:title="Map View"
+        android:summary="Set the view style to Hike-Bike." />
+        <ListPreference
+            android:key="pizza"
+            android:title="Pizza flavour"
+            android:summary="Choose your pizza flavour."
+            android:entries="@array/mapTypes"
+            android:entryValues="@array/mapTypesCodes" />
 </PreferenceScreen>

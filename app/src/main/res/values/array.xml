@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="mapTypes">
+        <item>Standard Map</item>
+        <item>Hike-Bike Map</item>
+    </string-array>
+    <string-array name="mapTypesCodes">
+        <item>SD</item>
+        <item>HB</item>
+    </string-array>
+</resources>

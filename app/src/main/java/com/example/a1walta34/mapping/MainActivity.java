@@ -1,5 +1,6 @@
 package com.example.a1walta34.mapping;
 
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
@@ -58,11 +59,16 @@ public class MainActivity extends AppCompatActivity{
             // react to the menu item being selected...
             return true;
         }
+        if(item.getItemId() == R.id.preferences){
+            Intent intent = new Intent(this,MyPrefsActivity.class);
+            startActivityForResult(intent, 2);
+            // react to the menu item being selected...
+            return true;
+        }
         return false;
     }
     protected void onActivityResult(int requestCode,int resultCode,Intent intent)
     {
-
         if(requestCode==0)
         {
 
@@ -82,11 +88,18 @@ public class MainActivity extends AppCompatActivity{
         }
         if(requestCode==1)
         {
-            Bundle extras=intent.getExtras();
-            double latCo= extras.getDouble("com.example.latCo");
-            double lonCo= extras.getDouble("com.example.lonCo");
 
-            mv.getController().setCenter(new GeoPoint(latCo,lonCo));
+            if (resultCode==RESULT_OK) {
+                Bundle extras = intent.getExtras();
+                double latCo = extras.getDouble("com.example.latCo");
+                double lonCo = extras.getDouble("com.example.lonCo");
+                mv.getController().setCenter(new GeoPoint(latCo, lonCo));
+            }
         }
+    }
+    public void onStart(){
+        super.onStart();
+        SharedPreferences prefs =PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        double lat = Double.parseDouble(prefs.getString("lat","50.9"));
     }
 }
