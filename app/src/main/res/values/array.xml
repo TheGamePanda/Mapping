@@ -8,4 +8,12 @@
         <item>SD</item>
         <item>HB</item>
     </string-array>
+    <string-array name="mapLocations">
+        <item>Standard Map</item>
+        <item>Hike-Bike Map</item>
+    </string-array>
+    <string-array name="mapLocationsCode">
+        <item>SD</item>
+        <item>HB</item>
+    </string-array>
 </resources>

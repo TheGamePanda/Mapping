@@ -14,10 +14,10 @@
         android:defaultValue="true"
         android:title="Map View"
         android:summary="Set the view style to Hike-Bike." />
-        <ListPreference
-            android:key="pizza"
-            android:title="Pizza flavour"
-            android:summary="Choose your pizza flavour."
-            android:entries="@array/mapTypes"
-            android:entryValues="@array/mapTypesCodes" />
+    <ListPreference
+        android:key="locations"
+        android:title="Map Locations"
+        android:summary="Choose your map locations."
+        android:entries="@array/mapLocations"
+        android:entryValues="@array/mapLocationsCode" />
 </PreferenceScreen>

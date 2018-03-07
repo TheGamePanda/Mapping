@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity{
             return true;
         }
         if(item.getItemId() == R.id.preferences){
-            Intent intent = new Intent(this,MyPrefsActivity.class);
+            Intent intent = new Intent(this,PrefsActivity.class);
             startActivityForResult(intent, 2);
             // react to the menu item being selected...
             return true;
@@ -94,6 +94,12 @@ public class MainActivity extends AppCompatActivity{
                 double latCo = extras.getDouble("com.example.latCo");
                 double lonCo = extras.getDouble("com.example.lonCo");
                 mv.getController().setCenter(new GeoPoint(latCo, lonCo));
+            }
+        }
+        if(requestCode==2)
+        {
+            if (resultCode==RESULT_OK) {
+                Bundle extras = intent.getExtras();
             }
         }
     }

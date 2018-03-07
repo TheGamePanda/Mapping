@@ -29,10 +29,7 @@
             android:name=".LocationChoice"
             android:label="@string/title_activity_location_choice"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".PreferenceActivity"
-            android:label="@string/title_activity_preference"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".PrefsActivity"></activity>
     </application>
 
 </manifest>
